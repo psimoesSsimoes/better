@@ -1,3 +1,5 @@
+zerozero
+
 LEAGUE ID'S
 
 England = 97911
@@ -9,7 +11,7 @@ France = 97814
 Netherlands = 98460
 Turkey = 98405
 Brasil = 96361
-Argentina = 98636 
+Argentina = 98636
 
 
 
@@ -29,3 +31,32 @@ Argentina = 98636
 /html/body/div[5]/div[3]/div[4]/div[3]/div/table/tbody/tr[2]/td/div[1]/table/tbody/tr[3]/td[6] //resultado tipico
 
 
+//on http://www.forebet.com/en/football-tips-and-predictions-for-today
+xpath (//td[1]/a[1]) will return all the href for the games of that day
+
+// there, i want to retrive:
+
+//standings on table using css
+html body div#body-wrapper table.main tbody tr td table.allcontent tbody tr td table tbody tr td.contentmiddle div table.stat-content tbody tr td div div#short_standings table#standings tbody
+this will give all table (6 rows) but from there will be easy to retrive position using key club name
+// tips
+//*[@id="m_trend"]
+// direct confront ratio
+
+//percentages of last 6 matches, home team
+/html/body/div[3]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td[2]/div/table[9]/tbody/tr[3]/td[1]/div/table/tbody/tr[9]
+//percentages of last 6 matches, away team
+/html/body/div[3]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td[2]/div/table[9]/tbody/tr[3]/td[2]/div/table/tbody/tr[9]
+
+//percentages home matches, home team
+/html/body/div[3]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td[2]/div/table[9]/tbody/tr[4]/td[1]/div/table/tbody/tr[3]
+//percentages away matches, away team
+/html/body/div[3]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td[2]/div/table[9]/tbody/tr[4]/td[2]/div/table/tbody/tr[3]
+
+table with overall statistics
+/html/body/div[3]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td[2]/div/table[9]/tbody/tr[5]/td[1]/div/table
+
+
+//avg goals scored away
+
+//head to head
