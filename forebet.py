@@ -1,6 +1,6 @@
 from lxml import html
 import requests
-from forefootball_game import forebetfootball_game
+from forefootball_game import forebetfootball_game_url
 '''
 read page source
 '''
@@ -15,9 +15,10 @@ obj=[]
 
 '''loop all href'''
 for url in href_today_games:
-    game = forebetfootball_game("http://www.forebet.com/"+url)''' create object with url '''
+    '''create object with url'''
+    game = forebetfootball_game_url("http://www.forebet.com/"+url)
     ''' call methods of the class'''
-    
+    game.standings()
     obj.append(game)
 
 for elem in obj:

@@ -36,8 +36,9 @@ xpath (//td[1]/a[1]) will return all the href for the games of that day
 
 // there, i want to retrive:
 
-//standings on table using css
-html body div#body-wrapper table.main tbody tr td table.allcontent tbody tr td table tbody tr td.contentmiddle div table.stat-content tbody tr td div div#short_standings table#standings tbody
+//standings on table
+//*[contains(@style,'#FFD463')]
+
 this will give all table (6 rows) but from there will be easy to retrive position using key club name
 // tips
 //*[@id="m_trend"]
