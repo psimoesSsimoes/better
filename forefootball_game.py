@@ -15,7 +15,8 @@ class forebetfootball_game_url:
 
 
    def standings(self):
-       standings_table_arr =  [self.tree.xpath('//*[contains(@style,"#FFD463")]/td/text()')[i] for i in (0,8)] #in position 0 and 8 are the standings positions of each team
+       #print (self.tree.xpath('//*[contains(@style,"#FFD463")]/td/text()'))
+       standings_table_arr =  [self.tree.xpath('//*[contains(@style,"#FFD463")]/td/text()')[i] for i in (17,26)] #in position 0 and 8 are the standings positions of each team
        names_standings = [j for i in zip(self.tree.xpath('//*[contains(@style,"#FFD463")]/td/a/text()'),standings_table_arr) for j in i] #merge two list into a single list
        self.analisys.set_teams_points(names_standings)
        self.analisys.print_team_stats()
