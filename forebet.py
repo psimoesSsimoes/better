@@ -18,7 +18,12 @@ for url in href_today_games:
     '''create object with url'''
     game = forebetfootball_game_url("http://www.forebet.com/"+url)
     ''' call methods of the class'''
+    '''
+        the order needs to be the following: names, standings,
+    '''
+    game.team_names()
     game.standings()
+
     obj.append(game)
 
 for elem in obj:

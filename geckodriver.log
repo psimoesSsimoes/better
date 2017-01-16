@@ -1,6 +1,0 @@
-1484433589321	geckodriver	INFO	Listening on 127.0.0.1:33131
-1484433590191	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.MmNBV8TALUrY
-1484433590196	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox
-1484433590206	geckodriver::marionette	INFO	Connecting to Marionette on localhost:36913
-1484433592345	Marionette	INFO	Listening on port 36913
-JavaScript warning: http://mathid.mathtag.com/device/id.js, line 1: unreachable code after return statement
