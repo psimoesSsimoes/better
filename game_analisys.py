@@ -4,7 +4,13 @@ class game_Analisys(object):
 	def __init__(self):
 		self.home_team=[]
 		self.away_team=[]
-
+	'''
+	we have no way of predicting if the home_team has more points than the away_team
+	other than compare the names that come from the self arrays with the names that come in a_list
+	a_list[a,13,b,14]
+	home_team[a]
+	away_team[b]
+	'''
 	def set_teams_points(self,a_list):
 		if self.home_team[0]==a_list[0]:
 			self.home_team.append(a_list[1])

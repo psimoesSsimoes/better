@@ -26,5 +26,7 @@ class forebetfootball_game_url:
        arr_manipulator = arr_utils(arr_names)
        self.analisys.set_team_names(arr_manipulator.index_based_extract(0),arr_manipulator.index_based_extract(1))
 
+   def
+
    def displayUrl(self):
      print (self.url)
