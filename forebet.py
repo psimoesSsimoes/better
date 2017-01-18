@@ -22,8 +22,13 @@ for url in href_today_games:
         the order needs to be the following: names, standings,
     '''
     game.team_names()
-    game.standings()
-
+    if(game.standings()):
+        game.head_to_head()
+        game.last_6_matches()
+        game.last_matches_home()
+        game.last_matches_away()
+        game.overall_statistics()
+        game.displayTeamsStats()
     obj.append(game)
 
 for elem in obj:
