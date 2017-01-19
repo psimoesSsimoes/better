@@ -2,6 +2,7 @@ from lxml import html
 import requests
 from arr_utils import arr_utils
 from game_analisys import game_Analisys
+from transfermarket import Transfer_market
 
 class forebetfootball_game_url:
    'Common base class for all games in forebet'
@@ -10,6 +11,7 @@ class forebetfootball_game_url:
    def __init__(self, url):
       self.url = url
       self.analisys = game_Analisys()
+      self.transfermarkt = None
       page = requests.get(self.url)
       self.tree = html.fromstring(page.content)
 
@@ -33,6 +35,7 @@ class forebetfootball_game_url:
        arr_names = (self.tree.xpath('//center/h1/a/text()'))
        arr_manipulator = arr_utils(arr_names)
        self.analisys.set_team_names(arr_manipulator.index_based_extract(0),arr_manipulator.index_based_extract(1))
+       self.transfermarkt= Transfer_market(arr_manipulator.index_based_extract(0),arr_manipulator.index_based_extract(1))
    '''
     One of this xpaths will be empty. Sum up the lists will always give us the wanted percentages
    '''
@@ -68,6 +71,9 @@ class forebetfootball_game_url:
 
    def displayTeamsStats(self):
        self.analisys.print_team_stats()
+
+   def head_to_head_by_position(self):
+       self.transfermarkt.getTeamMainPageUrl("Fc Porto")
 
    def displayUrl(self):
      print (self.url)
