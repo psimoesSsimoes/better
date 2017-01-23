@@ -1,5 +1,7 @@
 from lxml import html
 import requests
+import urllib
+
 
 
 class Transfer_market(object):
@@ -9,10 +11,17 @@ class Transfer_market(object):
         self.away_name=away_name
 
     def getTeamMainPageUrl(self,team_name):
-        page = requests.get('http://www.transfermarkt.co.uk/schnellsuche/ergebnis/schnellsuche?query='+team_name)
-        tree = html.fromstring(page.content)
-        print (tree.xpath('/html/body/div[4]/div[8]/div/div/div[2]/div/table/tr[1]/td[2]/table/tr[1]/td/a/text()'))
-        mainUrl = tree.xpath('/html/body/div[4]/div[8]/div/div/div[2]/div/table/tr[1]/td[2]/table/tr[1]/td/a/@href')
-'''
-find the home and away team url
-'''
+        parameters = team_name.replace(' ', '+')
+        print (parameters)
+        headers = {
+            'User-Agent': 'My User Agent 1.0',
+            'From': 'youremail@domain.com'  # This is another valid field
+        }
+
+        page = requests.get("http://www.transfermarkt.co.uk", headers=headers)
+        print (page.content)
+
+
+# result.info() will contain the HTTP headers
+
+# To get say the content-length header
