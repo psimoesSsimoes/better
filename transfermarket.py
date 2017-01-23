@@ -31,10 +31,18 @@ class Transfer_market(object):
 
     def extract_team(self,team_name):
         tree = self.getTeamMainPageTree(team_name)
-        extract_formation(tree)
+        self.extract_formation(tree)
+        print (tree.xpath('/html/body/div[5]/div[10]/div[1]/div[2]/div[5]/div[2]/div/div[2]/span/a/text()'))
 
     def extract_formation(self,tree):
-        formation = tree.xpath('//*[@id="main"]/div[10]/div[1]/div[2]/div[4]/div[1]/text()'))
+        # formation will be a list with only one string
+        formation = tree.xpath('//*[@id="main"]/div[10]/div[1]/div[2]/div[4]/div[1]/text()')
+        for i in self.list_formations:
+            if i in formation[0]:
+                print (i)
+
+
+
 
 
 
