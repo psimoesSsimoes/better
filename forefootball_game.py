@@ -73,7 +73,7 @@ class forebetfootball_game_url:
        self.analisys.print_team_stats()
 
    def head_to_head_by_position(self):
-       self.transfermarkt.getTeamMainPageUrl("Fc Porto")
+       self.transfermarkt.getTeamMainPageUrl("Samsunspor")
 
    def displayUrl(self):
      print (self.url)
