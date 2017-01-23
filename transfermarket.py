@@ -6,11 +6,13 @@ import urllib
 
 class Transfer_market(object):
 
+    list_formations = ['4-3-3','4-4-2','5-4-1','3-1-4-2','4-4-1-1','4-5-1','4-1-2-1-2','5-3-2','4-2-3-1','4-3-2-1','3-4-3','3-3-1-3','3-4-2-1','3-6-1','1-4-3-2','4-2-4']
+
     def __init__(self,home_name,away_name):
         self.home_name=home_name
         self.away_name=away_name
 
-    def getTeamMainPageUrl(self,team_name):
+    def getTeamMainPageTree(self,team_name):
         parameters = team_name.replace(' ', '+')
         url = "http://www.transfermarkt.co.uk/schnellsuche/ergebnis/schnellsuche?query="+parameters+"&x=0&y=0"
         headers = {
@@ -22,12 +24,21 @@ class Transfer_market(object):
         #print (page.content)
         tree = html.fromstring(page.text)
         allhref = tree.xpath('//*[@id]/@href')
-        '''
-         
-        '''
-        print (allhref[7])
+        url = "http://www.transfermarkt.co.uk/"+allhref[7]
+        page = requests.get(url, headers=headers)
+        tree = html.fromstring(page.text)
+        return tree
 
-        mainUrl = tree.xpath('/html/body/div[4]/div[8]/div/div/div[2]/div/table/tr[1]/td[2]/table/tr[1]/td/a/@href')
+    def extract_team(self,team_name):
+        tree = self.getTeamMainPageTree(team_name)
+        extract_formation(tree)
+
+    def extract_formation(self,tree):
+        formation = tree.xpath('//*[@id="main"]/div[10]/div[1]/div[2]/div[4]/div[1]/text()'))
+
+
+
+
 
 
 # result.info() will contain the HTTP headers
