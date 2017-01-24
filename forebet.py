@@ -1,6 +1,7 @@
 from lxml import html
 import requests
 from forefootball_game import forebetfootball_game_url
+from ligarecord import LigaRecord
 '''
 read page source
 '''
@@ -12,6 +13,11 @@ retrive all href for today's games
 href_today_games = [match for match in tree.xpath('//td[1]/a[1]/@href') if '/en/predictions' in match]
 ''' array containing gameurl objects'''
 obj=[]
+
+
+liga = LigaRecord()
+liga.getTree()
+
 
 '''loop all href'''
 for url in href_today_games:
